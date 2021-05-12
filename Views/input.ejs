@@ -1,0 +1,41 @@
+<%- include("_header") -%>
+
+<h1>Customer Import</h1>
+
+
+<form>
+    <input type="file" name="filename" required><p></p>
+    <input type="submit">
+</form>
+<p id="result"></p>
+
+<script>
+    // Typically, if the script is large, we place it in a separate file
+    //   For demonstrations, it is included in the same file.
+    // Handle form submission
+    document.querySelector("form").addEventListener("submit", e => {
+      // Cancel default behavior of sending a synchronous POST request
+      e.preventDefault();
+      // Create a FormData object, passing the form as a parameter
+      const formData = new FormData(e.target);
+      // Send form data to the server with an asynchronous POST request
+      fetch("/input", {
+        method: "POST",
+        body: formData
+      })
+        .then(response => response.text())
+        .then(data => {
+            const resultElement = document.getElementById("result");
+            if (data.substring(0,5) === "Error") {
+                resultElement.innerText = `Error occurred!  ${data}`
+            } else {
+                resultElement.innerText = data;
+            };
+        })
+        .catch(err => {
+            document.getElementById("message").textContent = `Error: ${err.message}`;
+        });
+    });
+    </script>
+
+<%- include("_footer") -%>

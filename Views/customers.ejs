@@ -1,0 +1,39 @@
+<%- include("_header") -%>
+
+<h1>List of Customers (<%= model.length %>)</h1>
+
+<div class="table-responsive-sm">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Customer ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>State</th>
+        <th>Sales YTD</th>
+        <th>Sales Prev</th>
+        <th class="d-print-none">
+          <a class="btn btn-sm btn-success" href="/create">Add</a>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (const customer of model) { %>
+        <tr>
+          <td><%= customer.cusid %></td>
+          <td><%= customer.cusfname %></td>
+          <td><%= customer.cuslname %></td>
+          <td><%= customer.cusstate %></td>
+          <td><%= customer.cussalesytd %></td>
+          <td><%= customer.cussalesprev %></td>
+          <td class="d-print-none">
+            <a class="btn btn-sm btn-warning" href="/edit/<%= customer.cusid %>">Edit</a>
+            <a class="btn btn-sm btn-danger" href="/delete/<%= customer.cusid %>">Delete</a>
+          </td>
+        </tr>
+      <% } %>
+    </tbody>
+  </table>
+</div>
+
+<%- include("_footer") -%>

@@ -1,0 +1,45 @@
+<div class="form-group row">
+    <label class="col-form-label col-sm-2" for="cusid">Customer ID</label>
+    <div class="col-sm-7">
+      <input autofocus class="form-control" name="cusid" value="<%= model.cusid %>" required/>
+    </div>
+    <td>(Required)</td>
+  </div>
+  
+  <div class="form-group row">
+    <label class="col-form-label col-sm-2" for="cusfname">First Nname</label>
+    <div class="col-sm-7">
+      <input class="form-control" name="cusfname" value="<%= model.cusfname %>" required/>
+    </div>
+    <td>(Required)</td>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-form-label col-sm-2" for="cuslname">Last Nname</label>
+    <div class="col-sm-7">
+      <input class="form-control" name="cuslname" value="<%= model.cuslname %>" required/>
+    </div>
+    <td>(Required)</td>
+  </div>
+  
+  <div class="form-group row">
+    <label class="col-form-label col-sm-2" for="cusstate">State</label>
+    <div class="col-sm-7">
+        <input class="form-control" type="text" name="cusstate" value="<%= model.cusstate %>" required maxlength="2"/>
+    </div>
+  </div>
+  
+  <div class="form-group row">
+    <label class="col-form-label col-sm-2" for="cussalesytd">Sales YTD</label>
+    <div class="col-sm-7">
+      <input class="form-control" name="cussalesytd" value="<%= model.cussalesytd %>" />
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-form-label col-sm-2" for="cussalesprev">Sales Prev</label>
+    <div class="col-sm-7">
+      <input class="form-control" name="cussalesprev" value="<%= model.cussalesprev %>" />
+    </div>
+  </div>
+  
